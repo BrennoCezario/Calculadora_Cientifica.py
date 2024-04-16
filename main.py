@@ -20,6 +20,7 @@ def opcoes():
             print(f"e^{x} = {e_x(x)}")
         case 2:
             ln_x(x)
+            print(f"ln{x} = {ln_x(x)}")
         case 3:
             log_x(x)
         case 4:
@@ -44,7 +45,12 @@ def e_x(x, precisao=150):
 
 def ln_x(x, precisao = 100):
     #Algoritmo que resolve a funcao len x
-    return 1
+    resultado = 0.0
+    sinal = 1
+    for n in range(1,precisao):
+        resultado += sinal*(((x-1)**n)/n)
+        sinal *= -1
+    return resultado
 
 def log_x(x, precisao = 100):
     #Algoritmo que resolve a funcao log x
