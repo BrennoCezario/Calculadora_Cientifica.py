@@ -19,19 +19,18 @@ def opcoes():
         case 1:
             print(f"e^{x} = {e_x(x)}")
         case 2:
-            ln_x(x)
             print(f"ln{x} = {ln_x(x)}")
         case 3:
-            log_x(x)
+            print(f"log{x} = {log_x(x)}")
         case 4:
             sen_x(x)
             print(f"sen({x}) = {sen_x(x)}")
         case 5:
-            cos_x(x)
+            print(f"cos{x} = {cos_x(x)}")
         case 6:
-            tg_x(x)
+            print(f"tg{x} = {tg_x(x)}")
         case 7:
-            raiz_x(x)
+            print(f"raiz ({x}) = {raiz_x(x)}")
         case 8:
             pi()
             print(f"pi = {pi()}")
@@ -88,11 +87,15 @@ def cos_x(x, precisao = 150):
 
 def tg_x(x, precisao = 100):
     #Algoritmo que resolve a funcao tan x
-    return 1
+    resultado = sen_x(x) / cos_x(x)
+    return resultado
 
-def raiz_x(x, precisao = 100):
+def raiz_x(x, precisao = 50):
     #Algoritmo que resolve a funcao raiz
-    return 1
+    resultado = 0.0
+    for n in range(1,precisao):
+        resultado = fa * (x-a)**n
+    return resultado
 
 def pi(precisao = 1000):
     #Algoritmo que resolve a constante pi
@@ -102,6 +105,7 @@ def pi(precisao = 1000):
     return resultado*4
 
 def factorial(n):
+    #Algoritmo que calcula o fatorial de um numero
     if n == 0 or n == 1:
         return 1
     else:
