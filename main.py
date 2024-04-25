@@ -48,14 +48,21 @@ def e_x(x, precisao=150):
         resultado += x**n / factorial(n)
     return resultado
 
-def ln_x(x, precisao = 100):
-    #Algoritmo que resolve a funcao len x
-    resultado = 0.0
-    sinal = 1
-    for n in range(1,precisao):
-        resultado += sinal*(((x-1)**n)/n)
-        sinal *= -1
+def ln_x(x, precisao=1e-6):
+    if x <= 0:
+        raise ValueError("O logaritmo natural só é definido para números reais positivos")
+
+    y = (x - 1) / (x + 1)
+    soma = 0.0
+    termo = y
+    n = 1
+    while abs(termo) > precisao:
+        soma += termo
+        n += 2
+        termo = (y ** n) / n
+    resultado = 2* soma
     return resultado
+
 
 def log_x(x, precisao=100):
     # Algoritmo que resolve a função log x
