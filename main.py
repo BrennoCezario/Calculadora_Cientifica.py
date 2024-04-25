@@ -98,11 +98,10 @@ def tg_x(x, precisao = 100):
     resultado = sen_x(x) / cos_x(x)
     return resultado
 
-def raiz_x(x, precisao = 50):
-    #Algoritmo que resolve a funcao raiz
-    resultado = 0.0
-    for n in range(1,precisao):
-        resultado = fa * (x-a)**n
+def raiz_x(x, terms=100):
+    resultado = x / 2.0
+    for n in range(terms):
+        resultado = resultado - (resultado**2 - x) / (2 * resultado)
     return resultado
 
 def pi(precisao = 1000):
